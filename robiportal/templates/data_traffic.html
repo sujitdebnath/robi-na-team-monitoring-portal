@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <h5>Data Availability Overview (Data Traffic)</h5>
+</div>
+
+<div class="row">
+  <table class="table table-bordered table-responsive table-hover">
+    <thead class="thead-light">
+        <tr id="table-head">
+          <th scope="col"></th>
+          <th scope="col" colspan="2">Network Overview</th>
+          <th scope="col" colspan="2">2G Network Data Volume (TB)</th>
+          <th scope="col" colspan="2">3G Network Data Volume (TB)</th>
+          <th scope="col" colspan="2">4G Network Data Volume (TB)	</th>
+          <th scope="col" colspan="2">2G Avg Cell/Hr</th>
+          <th scope="col" colspan="2">3G Avg Cell/Hr</th>
+          <th scope="col" colspan="2">4G Avg Cell/Hr</th>
+        </tr>
+        <tr id="table-head">
+          <th>Date</th>
+          <th>Data Volume (TB)</th>
+          <th># of Total cell</th>
+          <th>Eric</th>
+          <th>Huw</th>
+          <th>Eric</th>
+          <th>Huw</th>
+          <th>Eric</th>
+          <th>Huw</th>
+          <th>Eric</th>
+          <th>Huw</th>
+          <th>Eric</th>
+          <th>Huw</th>
+          <th>Eric</th>
+          <th>Huw</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for row in data['data'] %}
+          <tr>
+              {% for i in range(1,16) %}
+                {% if i==1 %}
+                <td>{{ row[i] }}</td>
+                {% else %}
+                <td>{{ row[i] | numberFormat }}</td>
+                {% endif %}
+              {% endfor %}
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+</div>
+{% endblock content %}
+
+{% block graph %}
+<div class="row">
+  <div class="col-sm col-md col-xs">
+    <script>
+      var datas1 = {{ data|tojson }};
+  
+      var labelText1 = 'Data Volume';
+      var titleText1 = 'Data Volume (TB) Over Date';
+      var xAxisData1 = datas1.graph1x;
+      var yAxisData1 = datas1.graph1y;
+    </script>
+  
+    <canvas id="barChart1"></canvas>
+  </div>
+  <div class="col-sm col-md col-xs">
+    <script>
+      var datas2 = {{ data|tojson }};
+  
+      var labelText2 = 'Data Volume';
+      var titleText2 = 'Number of Total Cell Over Date';
+      var xAxisData2 = datas2.graph2x;
+      var yAxisData2 = datas2.graph2y;
+    </script>
+  
+    <canvas id="barChart2"></canvas>
+  </div>
+</div>
+{% endblock graph %}

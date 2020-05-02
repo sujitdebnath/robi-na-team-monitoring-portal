@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <h5>TMC Summary</h5>
+</div>
+
+<div class="row">
+    <div class="col-sm col-md col-lg">
+        <table id="tmc_table" class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr id="table-head">
+                    <th scope="col">2G CSSR >= 98% (Cell BH) (% of Cells)</th>
+                    <th scope="col">QT (Q4'19) Target</th>
+                    {% for date in data['CSSR'][0] %}
+                    <th scope="col">{{ date }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in data['CSSR'][1].items() %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ '%0.2f' % value[0][2]|float }}</td>
+                    {% for i in range(7) %}
+                    {% if value[0][2]-value[i][3] > 8 %}
+                    <td class="color_red">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% elif value[0][2]-value[i][3] > 0 %}
+                    <td class="color_yellow">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% else %}
+                    <td class="color_green">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}
+
+{% block content2 %}
+<div class="row">
+    <div class="col-sm col-md col-lg">
+        <table id="tmc_table" class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr id="table-head">
+                    <th scope="col">2G CDR (24H) <=2% (% of Cells)</th>
+                    <th scope="col">QT (Q4'19) Target</th>
+                    {% for date in data['CDR'][0] %}
+                    <th scope="col">{{ date }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in data['CDR'][1].items() %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ '%0.2f' % value[0][2]|float }}</td>
+                    {% for i in range(7) %}
+                    {% if value[0][2]-value[i][3] > 8 %}
+                    <td class="color_red">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% elif value[0][2]-value[i][3] > 0 %}
+                    <td class="color_yellow">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% else %}
+                    <td class="color_green">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content2 %}
+
+{% block content3 %}
+<div class="row">
+    <div class="col-sm col-md col-lg">
+        <table id="tmc_table" class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr id="table-head">
+                    <th scope="col">3G Speech Access Success Rate>=98% (Cell Voice BH) (% of Cells)</th>
+                    <th scope="col">QT (Q4'19) Target</th>
+                    {% for date in data['SASR'][0] %}
+                    <th scope="col">{{ date }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in data['SASR'][1].items() %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ '%0.2f' % value[0][2]|float }}</td>
+                    {% for i in range(7) %}
+                    {% if value[0][2]-value[i][3] > 8 %}
+                    <td class="color_red">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% elif value[0][2]-value[i][3] > 0 %}
+                    <td class="color_yellow">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% else %}
+                    <td class="color_green">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content3 %}
+
+{% block content4 %}
+<div class="row">
+    <div class="col-sm col-md col-lg">
+        <table id="tmc_table" class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr id="table-head">
+                    <th scope="col">4G Data Access SR >=98% (24H) (% of Cells)</th>
+                    <th scope="col">QT (Q4'19) Target</th>
+                    {% for date in data['DASR'][0] %}
+                    <th scope="col">{{ date }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in data['DASR'][1].items() %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ '%0.2f' % value[0][2]|float }}</td>
+                    {% for i in range(7) %}
+                    {% if value[0][2]-value[i][3] > 8 %}
+                    <td class="color_red">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% elif value[0][2]-value[i][3] > 0 %}
+                    <td class="color_yellow">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% else %}
+                    <td class="color_green">{{'%0.2f' % value[i][3]|float }}</td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content4 %}

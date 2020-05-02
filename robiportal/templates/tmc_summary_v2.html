@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+    <table id="tmc_table" class="table table-bordered table-hover">
+        <caption style="text-align:center; font-size: 20px; font-weight: bold; caption-side:top">TMC Summary</caption>
+        <thead class="thead-light">
+            <tr id="table-head">
+                <th scope="col">2G CSSR >= 98% (Cell BH) (% of Cells)</th>
+                <th scope="col">QT (Q4'19) Target</th>
+                {% for date in posts['dates'] %}
+                <th scope="col"> {{ date }} </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts['CSSR'] %}
+            <tr>
+                {% for i in range(9) %}
+                {% if i==0 %}
+                <td>{{ post[i] }}</td>
+                {% elif i==1 %}
+                <td>{{'%0.2f' % post[i]|float }}</td>
+                {% else %}
+                {% if post[1]-post[i] > 8 %}
+                <td class="color_red">{{'%0.2f' % post[i]|float }}</td>
+                {% elif post[1]-post[i] > 0 %}
+                <td class="color_yellow">{{'%0.2f' % post[i]|float }}</td>
+                {% else %}
+                <td class="color_green">{{'%0.2f' % post[i]|float }}</td>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
+
+{% block content2 %}
+<div class="row">
+    <table id="tmc_table" class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr id="table-head">
+                <th scope="col">2G CDR (24H) <=2% (% of Cells)</th>
+                <th scope="col">QT (Q4'19) Target</th>
+                {% for date in posts['dates'] %}
+                <th scope="col"> {{ date }} </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts['CDR'] %}
+            <tr>
+                {% for i in range(9) %}
+                {% if i==0 %}
+                <td>{{ post[i] }}</td>
+                {% elif i==1 %}
+                <td>{{'%0.2f' % post[i]|float }}</td>
+                {% else %}
+                {% if post[1]-post[i] > 8 %}
+                <td class="color_red">{{'%0.2f' % post[i]|float }}</td>
+                {% elif post[1]-post[i] > 0 %}
+                <td class="color_yellow">{{'%0.2f' % post[i]|float }}</td>
+                {% else %}
+                <td class="color_green">{{'%0.2f' % post[i]|float }}</td>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content2 %}
+
+{% block content3 %}
+<div class="row">
+    <table id="tmc_table" class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr id="table-head">
+                <th scope="col">3G Speech Acess Success Rate>=98% (Cell Voice BH) (% of Cells)</th>
+                <th scope="col">QT (Q4'19) Target</th>
+                {% for date in posts['dates'] %}
+                <th scope="col"> {{ date }} </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts['SASR'] %}
+            <tr>
+                {% for i in range(9) %}
+                {% if i==0 %}
+                <td>{{ post[i] }}</td>
+                {% elif i==1 %}
+                <td>{{'%0.2f' % post[i]|float }}</td>
+                {% else %}
+                {% if post[1]-post[i] > 8 %}
+                <td class="color_red">{{'%0.2f' % post[i]|float }}</td>
+                {% elif post[1]-post[i] > 0 %}
+                <td class="color_yellow">{{'%0.2f' % post[i]|float }}</td>
+                {% else %}
+                <td class="color_green">{{'%0.2f' % post[i]|float }}</td>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content3 %}
+
+{% block content4 %}
+<div class="row">
+    <table id="tmc_table" class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr id="table-head">
+                <th scope="col">4G Data Access SR >=98% (24H) (% of Cells)</th>
+                <th scope="col">QT (Q4'19) Target</th>
+                {% for date in posts['dates'] %}
+                <th scope="col"> {{ date }} </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts['DASR'] %}
+            <tr>
+                {% for i in range(9) %}
+                {% if i==0 %}
+                <td>{{ post[i] }}</td>
+                {% elif i==1 %}
+                <td>{{'%0.2f' % post[i]|float }}</td>
+                {% else %}
+                {% if post[1]-post[i] > 8 %}
+                <td class="color_red">{{'%0.2f' % post[i]|float }}</td>
+                {% elif post[1]-post[i] > 0 %}
+                <td class="color_yellow">{{'%0.2f' % post[i]|float }}</td>
+                {% else %}
+                <td class="color_green">{{'%0.2f' % post[i]|float }}</td>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content4 %}
