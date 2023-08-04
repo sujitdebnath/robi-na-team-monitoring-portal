@@ -1,33 +1,27 @@
 # Robi Portal
 
-It's a demo portal which has been created with flask framework and chart.js for Network Analysis Team of Robi Axiata Limited
+It's a demo portal that has been created with [Flask](https://flask.palletsprojects.com/en/) framework and [Chart.js](https://www.chartjs.org/) for the Network Analysis Team of [Robi Axiata Limited](https://www.robi.com.bd/en). The primary objective of this project was to enable real-time monitoring of frequently generated KPI data, closely supervised by the Network Analysis Team.
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Project Setup
 
-Install virtual environment package for python3
-
+1. Clone this git repository
+```bash
+git clone https://github.com/sujitdebnath/robi-na-team-monitoring-portal.git
 ```
-sudo apt-get install python3-venv
+2. Install [Python](https://www.python.org/). Then create a virtual environment inside the repo and activate it.
+```bash
+python3 -m venv <env_name>
+source <env_name>/bin/activate
 ```
-
-Create virtual environment
+3. Download and install the required Python packages for the project.
+```bash
+pip install -r requirements.txt
 ```
-python3 -m venv robi
-```
-
-### Installing
-
-First time install all necessary module in virtual environment from requirement.txt for running the development env
-
-```
-pip install -r requirement.txt 
-```
-
-Also, need to install xampp web server.
+4. Install the [XAMPP](https://www.apachefriends.org/index.html) web server. Then create and load the database. And finally, run accordingly.
 
 ## Deployment
 
