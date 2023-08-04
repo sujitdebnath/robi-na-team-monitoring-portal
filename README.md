@@ -1,4 +1,4 @@
-# Robi Portal
+# Robi Network Analysis Team Monitoring Portal
 
 It's a demo portal that has been created with [Flask](https://flask.palletsprojects.com/en/) framework and [Chart.js](https://www.chartjs.org/) for the Network Analysis Team of [Robi Axiata Limited](https://www.robi.com.bd/en). The primary objective of this project was to enable real-time monitoring of frequently generated KPI data, closely supervised by the Network Analysis Team.
 
